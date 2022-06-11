@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { AdminModel } from './../models';
 import { ResponseI } from './../models';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Admin_Model_Email, Admin_Model_Registration_Tag } from '../models/login.model';
 
 
 @Injectable({
@@ -16,8 +16,16 @@ export class AuthService {
   constructor(private http:HttpClient) {}
 
 
-  LoginByEmail(form:AdminModel):Observable<ResponseI>{
+  Login_By_Email(form:Admin_Model_Email):Observable<ResponseI>{
     let direccion = this.url + "/login/token";
+    console.log("SE RECIBIÓ", form);
+    return this.http.post<ResponseI>(direccion,form);
+
+  }
+
+  Login_By_Registration_Tag(form:Admin_Model_Registration_Tag):Observable<ResponseI>{
+    let direccion = this.url + "/login/token";
+    console.log("SE RECIBIÓ", form);
     return this.http.post<ResponseI>(direccion,form);
 
   }
