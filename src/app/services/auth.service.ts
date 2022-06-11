@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { ResponseI } from './../models';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Admin_Model_Email, Admin_Model_Registration_Tag } from '../models/login.model';
+import { Admin_Model_Email } from '../models';
+import { Admin_Model_Registration_Tag } from '../models';
 
 
 @Injectable({

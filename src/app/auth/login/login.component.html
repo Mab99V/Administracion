@@ -20,57 +20,103 @@
       <form [formGroup]="login" (ngSubmit)="onLogin_with_email(login.value)" class="form-horizontal"
       role="form">
       
-        <div class="form-group">
-          <label class="col-sm-3 control-label" for="email">Correo electrónico</label>
-          <div class="col-sm-9">
-            <input class="form-control"
-               type="email" 
-               formControlName="email"
-               id="email" 
-               placeholder="Correo electrónico" 
-              >
+      <div class="panel-group ficha-collapse" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-parent="#accordion" data-toggle="collapse" href="#panel-01" aria-expanded="true" aria-controls="panel-01">
+              Ingresa con Correo Electronico
+              </a>
+            </h4>
+            <button type="button" class="collpase-button collapsed" data-parent="#accordion" data-toggle="collapse" href="#panel-01"></button>
           </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label" for="matricula">Matricula</label>
-            <div class="col-sm-9">
-              <input class="form-control"
-                type="text"
-                formControlName="registration_tag"
-                id="matricula" 
-                placeholder="Matricula" 
-                >
-            </div>
-          </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label" for="password-03">Contraseña:</label>
-          <div class="col-sm-9">
-            <input class="form-control"
-                type="password"
-                formControlName="password"
-                id="password-03" 
-                placeholder="Contraseña" 
-                >
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox">
-                Recordarme
-              </label>
+          <div class="panel-collapse collapse in" id="panel-01">
+            <div class="panel-body">
+              
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="email">Correo electrónico</label>
+                <div class="col-sm-9">
+                  <input class="form-control"
+                     type="email" 
+                     formControlName="email"
+                     id="email" 
+                     placeholder="Correo electrónico" 
+                    >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="password-03">Contraseña:</label>
+                <div class="col-sm-9">
+                  <input class="form-control"
+                      type="password"
+                      formControlName="password"
+                      id="password-03" 
+                      placeholder="Contraseña" 
+                      >
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-8">    
+    <form [formGroup]="login_with_registration_tag" (ngSubmit)="onLogin_with_registration_tag(login_with_registration_tag.value)" class="form-horizontal"
+    role="form">
+      
+      <div class="panel-group ficha-collapse" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-parent="#accordion" data-toggle="collapse" href="#panel-02" aria-expanded="true" aria-controls="panel-02">
+              Ingresa con la Matricula
+              </a>
+            </h4>
+            <button type="button" class="collpase-button collapsed" data-parent="#accordion" data-toggle="collapse" href="#panel-02"></button>
+          </div>
+          <div class="panel-collapse collapse in" id="panel-02">
+            <div class="panel-body">
+              
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="matricula">Matricula</label>
+                <div class="col-sm-9">
+                  <input class="form-control"
+                    type="text"
+                    formControlName="registration_tag"
+                    id="matricula" 
+                    placeholder="Matricula" 
+                    >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">Contraseña:</label>
+                <div class="col-sm-9">
+                  <input class="form-control"
+                      type="password"
+                      formControlName="password"
+                      id="password" 
+                      placeholder="Contraseña" 
+                      >
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
            <button type="submit" class="btn btn-primary pull-right">Enviar</button>
           </div>
         </div>
         <p><a routerLink="/register">Registarse</a></p>
-      </form>
+       </form>
       </div> 
-</div>
+
 <br>
 <br>

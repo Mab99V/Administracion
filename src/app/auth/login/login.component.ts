@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
-import { Admin_Model_Email, Admin_Model_Registration_Tag } from 'src/app/models/login.model';
+import { Admin_Model_Email} from 'src/app/models';
+import { Admin_Model_Registration_Tag } from 'src/app/models';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   })
   login_with_registration_tag = new FormGroup({
-    email: new FormControl('',Validators.required),
+    registration_tag: new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
 
   })
