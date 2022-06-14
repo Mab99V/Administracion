@@ -1,4 +1,4 @@
-export class Admin_Model_Email{
+export class LoginEmail{
     email: string;
     password: string;
 }

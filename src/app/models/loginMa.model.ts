@@ -1,4 +1,4 @@
-export class Admin_Model_Registration_Tag{
+export class LoginMatricula{
     registration_tag: string;
     password: string;
 }

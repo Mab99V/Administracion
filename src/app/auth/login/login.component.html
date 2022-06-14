@@ -17,7 +17,7 @@
 
       
         
-      <form [formGroup]="login" (ngSubmit)="onLogin_with_email(login.value)" class="form-horizontal"
+      <form [formGroup]="loginEmail" (ngSubmit)="onLoginEma(loginEmail.value)" class="form-horizontal"
       role="form">
       
       <div class="panel-group ficha-collapse" id="accordion">
@@ -56,7 +56,12 @@
                       >
                 </div>
               </div>
-
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                 <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                </div>
+              </div>
+               
             </div>
           </div>
         </div>
@@ -65,7 +70,7 @@
   </div>
 
   <div class="col-md-8">    
-    <form [formGroup]="login_with_registration_tag" (ngSubmit)="onLogin_with_registration_tag(login_with_registration_tag.value)" class="form-horizontal"
+    <form [formGroup]="loginMa" (ngSubmit)="onLoginMat(loginMa.value)" class="form-horizontal"
     role="form">
       
       <div class="panel-group ficha-collapse" id="accordion">
@@ -104,16 +109,15 @@
                       >
                 </div>
               </div>
-
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                 <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-           <button type="submit" class="btn btn-primary pull-right">Enviar</button>
-          </div>
-        </div>
         <p><a routerLink="/register">Registarse</a></p>
        </form>
       </div> 

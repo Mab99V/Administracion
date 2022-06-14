@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
-import { Admin_Model_Email} from 'src/app/models';
-import { Admin_Model_Registration_Tag } from 'src/app/models';
+import { FormControl, FormGroup,MaxValidator,Validators } from '@angular/forms';
+import { LoginEmail} from 'src/app/models';
+import { LoginMatricula} from 'src/app/models';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +12,12 @@ import { Admin_Model_Registration_Tag } from 'src/app/models';
 })
 export class LoginComponent implements OnInit {
 
-  login = new FormGroup({
+  loginEmail = new FormGroup({
     email: new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
 
   })
-  login_with_registration_tag = new FormGroup({
+  loginMa = new FormGroup({
     registration_tag: new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
 
@@ -32,14 +32,14 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLogin_with_email(form:Admin_Model_Email){
-   this.api.Login_By_Email(form).subscribe(data => {
+  onLoginEma(form:LoginEmail){
+   this.api.LoginEmail(form).subscribe(data => {
      console.log(data);
    })
   }
 
-  onLogin_with_registration_tag(form:Admin_Model_Registration_Tag){
-    this.api.Login_By_Registration_Tag(form).subscribe(data => {
+  onLoginMat(form:LoginMatricula){
+    this.api.LoginMa(form).subscribe(data => {
       console.log(data);
     })
    }
