@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrarModel } from 'src/app/models/';
+/*import { FormControl, FormGroup,Validators } from '@angular/forms';*/
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -9,18 +11,30 @@ import { RegistrarModel } from 'src/app/models/';
 })
 export class RegisterComponent implements OnInit {
 
-  registrarAdmin: RegistrarModel;
+ /* register = new FormGroup({
+    name: new FormControl('',Validators.required),
+    first_surname: new FormControl('', Validators.required),
+    second_surname: new FormControl('', Validators.required),
+    telephone: new FormControl(''),
+    role: new FormControl('', Validators.required),
+    registration_tag: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  })*/
 
-  constructor( ) { }
+  constructor( private api:AuthService) { }
 
   ngOnInit(): void {
-  this.registrarAdmin= new RegistrarModel;
-  this.registrarAdmin.email='mabelperezgaribay@gmail.com';
+  
   }
+/*
+  onRegister(form:RegistrarModel){
+    this.api.Register(form).subscribe(data => {
+      console.log(data);
+    })
+  }*/
 
-  onSubmit(){
-    console.log('Formulario Enviado');
-    console.log(this.registrarAdmin);
-  }
+
+  
 
 }

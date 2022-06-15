@@ -11,8 +11,9 @@
         <h3 class="bottom-buffer">Alta a un administrador</h3>
       </div>
     </div>
+    <div class="container">
     <div class="col-md-8">
-      <form (ngSubmit)="onSubmit()" 
+      <form    
           class="form-horizontal" role="form">
 
           <div class="form-group">
@@ -21,7 +22,6 @@
               <input class="form-control" 
                     type="text"
                     name= "name"  
-                    [(ngModel)]="registrarAdmin.name"
                     id="name" 
                     placeholder="Nombre" >
                     
@@ -32,9 +32,8 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="text"
-                  name= "apellido"
-                  [(ngModel)]="registrarAdmin.first_surname" 
-                  id="email" 
+                  name= "first_surname"
+                  id="first_surname" 
                   placeholder="Primer Apellido" >
                   
           </div>
@@ -44,9 +43,8 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="text"
-                  name= "apellido"
-                  [(ngModel)]="registrarAdmin.second_surname" 
-                  id="email" 
+                  name= "second_surname" 
+                  id="second_surname" 
                   placeholder="Segundo Apellido" >
                   
           </div>
@@ -56,8 +54,7 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="text"
-                  name= "telefono"
-                  [(ngModel)]="registrarAdmin.telephone" 
+                  name= "telephone" 
                   id="telefono" 
                   placeholder="Telefono" >
                   
@@ -68,8 +65,7 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="text"
-                  name= "rol"
-                  [(ngModel)]="registrarAdmin.role" 
+                  name= "role"
                   id="roles" 
                   placeholder="Rol" >        
           </div>
@@ -79,8 +75,7 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="text"
-                  name= "matricula"
-                  [(ngModel)]="registrarAdmin.registration_tag" 
+                  name= "registration_tag"
                   id="matricula" 
                   placeholder="Matricula" >
                   
@@ -91,8 +86,7 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="email"
-                  name= "email"
-                  [(ngModel)]="registrarAdmin.email" 
+                  name= "email" 
                   id="email" 
                   placeholder="Correo electrónico" >
                   
@@ -103,8 +97,7 @@
           <div class="col-sm-9">
             <input class="form-control"
                   type="password" 
-                  name= "password"
-                  [(ngModel)]="registrarAdmin.password" 
+                  name= "password" 
                   id="password" 
                   placeholder="Contraseña" >
                   
@@ -129,6 +122,7 @@
         <p><a routerLink="/login">Ya trabajo aqui</a></p>
       </form>
       </div>
+    </div>
          
         </div>
         <br>

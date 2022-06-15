@@ -17,9 +17,9 @@
 
       
         
-      <form [formGroup]="loginEmail" (ngSubmit)="onLoginEma(loginEmail.value)" class="form-horizontal"
+      <form  (ngSubmit)="onLoginEma(for)" #for="ngForm" class="form-horizontal"
       role="form">
-      
+     
       <div class="panel-group ficha-collapse" id="accordion">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -37,23 +37,26 @@
                 <label class="col-sm-3 control-label" for="email">Correo electrónico</label>
                 <div class="col-sm-9">
                   <input class="form-control"
+                     required
                      type="email" 
-                     formControlName="email"
+                     name="email"
+                     [(ngModel)]="admin.email"
                      id="email" 
                      placeholder="Correo electrónico" 
-                    >
+                    >  
+                    <span *ngIf="for.submitted && for.controls['email'].errors" class="text-danger">El correo es obligatorio</span>     
                 </div>
               </div>
-
               <div class="form-group">
                 <label class="col-sm-3 control-label" for="password-03">Contraseña:</label>
                 <div class="col-sm-9">
                   <input class="form-control"
                       type="password"
-                      formControlName="password"
+                      name="password"
+                      [(ngModel)]="admin.password"
                       id="password-03" 
                       placeholder="Contraseña" 
-                      >
+                      >   
                 </div>
               </div>
               <div class="form-group">
@@ -68,9 +71,9 @@
       </div>
     </form>
   </div>
-
   <div class="col-md-8">    
-    <form [formGroup]="loginMa" (ngSubmit)="onLoginMat(loginMa.value)" class="form-horizontal"
+
+    <form (ngSubmit)="onLoginMa(for2)" #for2="ngForm" class="form-horizontal"
     role="form">
       
       <div class="panel-group ficha-collapse" id="accordion">
@@ -91,10 +94,12 @@
                 <div class="col-sm-9">
                   <input class="form-control"
                     type="text"
-                    formControlName="registration_tag"
+                    name="registration_tag"
+                    [(ngModel)]="mat.registration_tag"
                     id="matricula" 
                     placeholder="Matricula" 
                     >
+                    <span *ngIf="for2.submitted && for2.controls['registration_tag'].errors" class="text-danger">Matricula obligatoria</span>     
                 </div>
               </div>
 
@@ -103,7 +108,8 @@
                 <div class="col-sm-9">
                   <input class="form-control"
                       type="password"
-                      formControlName="password"
+                      name="password"
+                      [(ngModel)]="mat.password"
                       id="password" 
                       placeholder="Contraseña" 
                       >
@@ -118,6 +124,8 @@
           </div>
         </div>
       </div>
+      <br>
+      <br>
         <p><a routerLink="/register">Registarse</a></p>
        </form>
       </div> 
