@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { RegistrarModel, ResponseI } from './../models';
+import { RegistrarModel } from './../models';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { LoginEmail } from '../models';
@@ -39,7 +39,7 @@ export class AuthService {
       authData
     ).pipe(
       map( resp =>{
-        this.guardarToken(resp['accesToken']);
+        this.guardarToken(resp['accessToken']);
         return resp;
       })
     );
@@ -72,7 +72,7 @@ export class AuthService {
       authData
     ).pipe(
       map( resp =>{
-        this.guardarToken(resp['accesToken']);
+        this.guardarToken(resp['accessToken']);
         return resp;
       })
     );
@@ -81,10 +81,27 @@ export class AuthService {
 
   
 
-  Register(form:RegistrarModel):Observable<ResponseI>{
-    let direccion = this.url + " ";
-    console.log("SE CREO",form);
-    return this.http.post<ResponseI>(direccion,form);
+  Register(register:RegistrarModel){
+    const authData = {
+      name: register.name,
+      first_surname: register.first_surname,
+      second_surname: register.second_surname,
+      telephone: register.telephone,
+      role: register.role,
+      registration_tag: register.registration_tag,
+      email: register.email,
+      password: register.password
+      };
+      return this.http.post (
+        `${this.url} `,
+        authData
+      ).pipe(
+        map(resp =>{
+          this.guardarToken(resp['accessToken']);
+          return resp;
+        })
+      );
   }
+  
 
 }

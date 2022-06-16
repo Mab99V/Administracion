@@ -99,7 +99,7 @@
                     id="matricula" 
                     placeholder="Matricula" 
                     >
-                    <span *ngIf="for2.submitted && for2.controls['registration_tag'].errors" class="text-danger">Matricula obligatoria</span>     
+                    <span *ngIf="for.submitted && for.controls['registration_tag'].errors" class="text-danger">Matricula obligatoria</span>     
                 </div>
               </div>
 
@@ -117,7 +117,8 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                 <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                 <button type="submit" class="btn btn-primary pull-right ">Enviar</button>
+                 
                 </div>
               </div>
             </div>
