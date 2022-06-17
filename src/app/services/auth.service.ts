@@ -7,6 +7,7 @@ import { map, Observable } from 'rxjs';
 import { LoginEmail } from '../models';
 import { LoginMatricula} from '../models';
 
+import Swal from "sweetalert2";
 
 
 @Injectable({
@@ -105,6 +106,62 @@ export class AuthService {
   }
 
   getLista():Observable<Lista[]>{
+    console.log(this.http.get<Lista[]>(this.url))
     return this.http.get<Lista[]>(this.url);
   }
+
+
+
+  delete_admin(id) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "¿Estas seguro que quieres eliminar este administrador?",
+        text: "No podrás deshacer los cambios.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si, eliminar",
+        cancelButtonText: "No, cancelar",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+
+          this.http.delete(this.url+"/"+id).subscribe(
+             data  => {
+              console.log(data);
+              if (data) {
+                swalWithBootstrapButtons
+                  .fire(
+                    "Eliminado",
+                    "Administrador eliminado correctamente",
+                    "success",
+                  )
+                  .then(() => {
+                    window.location.reload();
+                    //this.router.navigate(['/admin/admin/productos/']);
+                  });
+              }
+            },
+            (error) => {
+              console.error("Error al eliminar admin", error);
+            },
+          );
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelado",
+            "Operración cancelada",
+            "error",
+          );
+        }
+      });
+  }
+
 }

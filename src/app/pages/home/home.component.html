@@ -54,7 +54,7 @@
           <div class="row">
               <div class="col-md-8">
                 <form class="center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
               </div>
@@ -63,21 +63,34 @@
      <div class="container">
       <div class="row">
         <div class="col-md-8">   
-            <table class="table table-bordered">
+            <table class="table table-bordered" >
                 <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido paterno</th>
+                      <th scope="col">Apellido materno</th>
+                      <th scope="col">Matricula</th>
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Correo</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngFor="let admin of admin_data">
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td>{{ admin.id }}</td>
+                      <td>{{ admin.name }}</td>
+                      <td>{{ admin.first_surname }}</td>
+                      <td>{{ admin.second_surname }}</td>
+                      <td>{{ admin.registration_tag }}</td>
+                      <td>{{ admin.role }}</td>
+                      <td>{{ admin.telephone }}</td>
+                      <td>{{ admin.email }}</td>
+                      <td>
+                        <button type="button" class="btn btn-warning" (click)="actualizar_admin(admin.id)">Actualizar</button>
+                        <button type="button" class="btn btn-danger" (click)="borrar_admin(admin.id )">Borrar</button>
+                      </td>
                     </tr>
               </table>
         </div>
