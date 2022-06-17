@@ -15,10 +15,9 @@ import Swal from "sweetalert2";
 })
 export class AuthService {
 
-   url:string = "http://34.94.79.113:9090/api/mode/admin";
-
+  url:string = "http://34.94.79.113:9090/api/mode/admin";
   tokenUser: String;
-  
+
   constructor(private http:HttpClient) {
     this.leerToken();
   }
@@ -111,7 +110,6 @@ export class AuthService {
   }
 
 
-
   delete_admin(id) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -164,4 +162,9 @@ export class AuthService {
       });
   }
 
+  buscar_admin(id){
+
+    console.log(this.http.get(`${this.url}/${id}`))
+    return this.http.get(`${this.url}/${id}`);
+  }
 }

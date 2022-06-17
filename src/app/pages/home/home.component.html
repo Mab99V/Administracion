@@ -53,9 +53,9 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8">
-                <form class="center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form novalidate [formGroup]="newProductFG" class="center" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="id_to_find">
+                    <button class="btn btn-outline-success" type="submit" (click)="buscar_admin()">Search</button>
                   </form>
               </div>
           </div>
