@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   admin_data : any;
   search_admin_by_id: number  ;
 
-  constructor( private api:AuthService) { }
+  constructor( private api:AuthService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -33,4 +34,6 @@ export class HomeComponent implements OnInit {
   actualizar_admin(id){
     console.log(id)
   }
+  
+  
 }

@@ -11,7 +11,7 @@
               <li><a href="#">Cerrar sesion</a></li>
             </ul>
           </li>
-          <li><a href="/consultar">Consultar citas</a></li>
+          <li><a href="">Consultar citas</a></li>
           <li><a href="">Comprobar citas</a></li>
           <li><a href="">Datos del civil solicitante</a></li>
           <li><a href="">Pasaportes por tramitar</a></li>
@@ -44,7 +44,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <h2>Informacion de Administradores</h2>
+            <h2>Informacion de Citas</h2>
           </div>
         </div>
       </div>
@@ -67,29 +67,48 @@
                 <thead>
                     <tr>
                       <th scope="col">#</th>
+                      <th scope="col">Curp</th>
                       <th scope="col">Nombre</th>
-                      <th scope="col">Apellido paterno</th>
-                      <th scope="col">Apellido materno</th>
-                      <th scope="col">Matricula</th>
-                      <th scope="col">Cargo</th>
+                      <th scope="col">Apellido Paterno</th>
+                      <th scope="col">Apellido Materno</th>
+                      <th scope="col">Lugar de Nacimiento</th>
+                      <th scope="col">Fecha de Nacimiento</th>
+                      <th scope="col">Nacionalidad</th>
+                      <th scope="col">Direccion</th>
                       <th scope="col">Telefono</th>
-                      <th scope="col">Correo</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Telefono Opcional</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Oficina</th>
+                      <th scope="col">Paperwork</th>
+                      <th scope="col">Documento de Identificacion</th>
+                      <th scope="col">Documento de Identificacion_URL</th>
+                      <th scope="col">Documento de nacionalidad</th>
+                      <th scope="col">Documento de nacionalidad_URL</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let admin of admin_data">
+                  <tbody *ngFor="let cita of cita_data">
                     <tr>
-                      <td>{{ admin.id }}</td>
-                      <td>{{ admin.name }}</td>
-                      <td>{{ admin.first_surname }}</td>
-                      <td>{{ admin.second_surname }}</td>
-                      <td>{{ admin.registration_tag }}</td>
-                      <td>{{ admin.role }}</td>
-                      <td>{{ admin.telephone }}</td>
-                      <td>{{ admin.email }}</td>
+                      <td>{{ cita.id }}</td>
+                      <td>{{ cita.id_user }}</td>
+                      <td>{{ cita.name}}</td>
+                      <td>{{ cita.first_surname}}</td>
+                      <td>{{ cita. second_surname}}</td>
+                      <td>{{ cita. born_country}}</td>
+                      <td>{{ cita. born_date}}</td>
+                      <td>{{ cita.nationality}}</td>
+                      <td>{{ cita.address}}</td>
+                      <td>{{ cita.telephone}}</td>
+                      <td>{{ cita.optional_telephone}}</td>
+                      <td>{{ cita.state}}</td>
+                      <td>{{ cita.office}}</td>
+                      <td>{{ cita.office_paperwork}}</td>
+                      <td>{{ cita.identification_document}}</td>
+                      <td>{{ cita.identification_document_url}}</td>
+                      <td>{{ cita.nationality_document}}</td>
+                      <td>{{ cita.nationality_document_url}}</td>
                       <td>
-                        <button type="submit" class="btn btn-warning" (click)="actualizar_admin(admin.id)">Actualizar</button>
-                        <button type="button" class="btn btn-danger" (click)="borrar_admin(admin.id )">Borrar</button>
+                        <button type="button" class="btn btn-warning" >Revisar Cita</button>
+                        
                       </td>
                     </tr>
               </table>
