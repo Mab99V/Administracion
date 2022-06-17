@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from "@angular/forms";
@@ -12,6 +13,10 @@ export class HomeComponent implements OnInit {
   admin_data: Array<any> = [];
   newProductFG: FormGroup;
 
+<<<<<<< HEAD
+=======
+  constructor( private api:AuthService, private router:Router) { }
+>>>>>>> 7b60135eb5bd9105c627ede7c2ada20375db7464
 
   constructor(private api: AuthService) { }
 
@@ -70,3 +75,12 @@ export class HomeComponent implements OnInit {
     }
   
 
+<<<<<<< HEAD
+=======
+  actualizar_admin(id){
+    console.log(id)
+  }
+  
+  
+}
+>>>>>>> 7b60135eb5bd9105c627ede7c2ada20375db7464

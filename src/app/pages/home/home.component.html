@@ -11,10 +11,7 @@
               <li><a href="#">Cerrar sesion</a></li>
             </ul>
           </li>
-          <li><a href="">Consultar citas</a></li>
-          <li><a href="">Comprobar citas</a></li>
-          <li><a href="">Datos del civil solicitante</a></li>
-          <li><a href="">Pasaportes por tramitar</a></li>
+          <li><a href="/consultar">Consultar citas</a></li>
         </ul>
       </div>
     </div>
@@ -88,7 +85,7 @@
                       <td>{{ admin.telephone }}</td>
                       <td>{{ admin.email }}</td>
                       <td>
-                        <button type="button" class="btn btn-warning" (click)="actualizar_admin(admin.id)">Actualizar</button>
+                        <button type="submit" class="btn btn-warning" (click)="actualizar_admin(admin.id)">Actualizar</button>
                         <button type="button" class="btn btn-danger" (click)="borrar_admin(admin.id )">Borrar</button>
                       </td>
                     </tr>

@@ -11,6 +11,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
+import { ActualizarComponent } from './pages/actualizar/actualizar.component';
+import { ConsultarComponent } from './pages/consultar/consultar.component';
+import { ComprobarComponent } from './pages/comprobar/comprobar.component';
 
 
 
@@ -20,7 +23,10 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ActualizarComponent,
+    ConsultarComponent,
+    ComprobarComponent
   ],
   imports: [
     BrowserModule,

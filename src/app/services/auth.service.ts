@@ -1,3 +1,4 @@
+import { ListaC } from './../models/ListaC';
 import { Lista } from './../models';
 import { Injectable } from '@angular/core';
 
@@ -15,7 +16,12 @@ import Swal from "sweetalert2";
 })
 export class AuthService {
 
+<<<<<<< HEAD
   url:string = "http://34.94.79.113:9090/api/mode/admin";
+=======
+   url:string = "http://34.94.79.113:9090/api";
+
+>>>>>>> 7b60135eb5bd9105c627ede7c2ada20375db7464
   tokenUser: String;
 
   constructor(private http:HttpClient) {
@@ -36,7 +42,7 @@ export class AuthService {
       password: admin.password
     };
     return this.http.post(
-      `${this.url}/login/token`,
+      `${this.url}/mode/admin/login/token`,
       authData
     ).pipe(
       map( resp =>{
@@ -69,7 +75,7 @@ export class AuthService {
       password: mat.password
     };
     return this.http.post(
-      `${this.url}/login/token`,
+      `${this.url}/mode/admin/login/token`,
       authData
     ).pipe(
       map( resp =>{
@@ -94,7 +100,7 @@ export class AuthService {
       password: register.password
       };
       return this.http.post (
-        `${this.url} `,
+        `${this.url}/mode/admin `,
         authData
       ).pipe(
         map(resp =>{
@@ -105,10 +111,14 @@ export class AuthService {
   }
 
   getLista():Observable<Lista[]>{
-    console.log(this.http.get<Lista[]>(this.url))
-    return this.http.get<Lista[]>(this.url);
+    console.log(this.http.get<Lista[]>(this.url+"/mode/admin"))
+    return this.http.get<Lista[]>(this.url+"/mode/admin");
   }
 
+  getListaC():Observable<ListaC[]>{
+    console.log(this.http.get<ListaC[]>(this.url+ "/appointments/status_true"))
+    return this.http.get<ListaC[]>(this.url +"/appointments/status_true")
+  }
 
   delete_admin(id) {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -132,7 +142,7 @@ export class AuthService {
       .then((result) => {
         if (result.isConfirmed) {
 
-          this.http.delete(this.url+"/"+id).subscribe(
+          this.http.delete(this.url+"/mode/admin"+id).subscribe(
              data  => {
               console.log(data);
               if (data) {
@@ -144,7 +154,7 @@ export class AuthService {
                   )
                   .then(() => {
                     window.location.reload();
-                    //this.router.navigate(['/admin/admin/productos/']);
+                    
                   });
               }
             },
@@ -162,9 +172,18 @@ export class AuthService {
       });
   }
 
+<<<<<<< HEAD
   buscar_admin(id){
 
     console.log(this.http.get(`${this.url}/${id}`))
     return this.http.get(`${this.url}/${id}`);
   }
+=======
+
+
+  update(admin_id: Lista): Observable<Lista>{
+    return this.http.put<Lista>(this.url, admin_id);
+  }
+
+>>>>>>> 7b60135eb5bd9105c627ede7c2ada20375db7464
 }
