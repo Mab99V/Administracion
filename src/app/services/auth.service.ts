@@ -1,3 +1,4 @@
+import { Lista } from './../models';
 import { Injectable } from '@angular/core';
 
 import { RegistrarModel } from './../models';
@@ -102,6 +103,8 @@ export class AuthService {
         })
       );
   }
-  
 
+  getLista():Observable<Lista[]>{
+    return this.http.get<Lista[]>(this.url);
+  }
 }
