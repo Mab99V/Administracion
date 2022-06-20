@@ -1,4 +1,4 @@
-export { ResponseI } from './response';
 export { RegistrarModel } from './register.model';
-export { AdminModel } from './login.model';
-
+export { LoginEmail } from './login.model';
+export { LoginMatricula } from './loginMa.model';
+export { Lista } from './listaAdmin';

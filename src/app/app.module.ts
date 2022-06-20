@@ -9,7 +9,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { ActualizarComponent } from './pages/actualizar/actualizar.component';
+import { ConsultarComponent } from './pages/consultar/consultar.component';
+import { ComprobarComponent } from './pages/comprobar/comprobar.component';
+
 
 
 @NgModule({
@@ -17,14 +22,19 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    ActualizarComponent,
+    ConsultarComponent,
+    ComprobarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

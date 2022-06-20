@@ -1,5 +1,8 @@
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RegistrarModel } from 'src/app/models/';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -9,18 +12,38 @@ import { RegistrarModel } from 'src/app/models/';
 })
 export class RegisterComponent implements OnInit {
 
-  registrarAdmin: RegistrarModel;
+  register: RegistrarModel;
+  remenber = false;
 
-  constructor( ) { }
+  constructor( private api:AuthService, private router:Router) { }
 
   ngOnInit(): void {
-  this.registrarAdmin= new RegistrarModel;
-  this.registrarAdmin.email='mabelperezgaribay@gmail.com';
+  
+    this.register = new RegistrarModel();
+    
+    if(localStorage.getItem('email') || localStorage.getItem('registration_tag')){
+      this.register.registration_tag =localStorage.getItem('registration_tag');
+      this.register.email = localStorage.getItem('email');
+      this.remenber = true;
+    }
+
   }
 
-  onSubmit(){
-    console.log('Formulario Enviado');
-    console.log(this.registrarAdmin);
-  }
 
+  onRegister(form: NgForm){
+    if(form.invalid){
+      return;
+    }
+    this.api.Register(this.register).subscribe(
+      resp => {
+         if(this.remenber){
+           localStorage.setItem('email', this.register.email);
+           console.log(resp)
+         }
+         this.router.navigateByUrl('/login');
+      },(error) => {
+        console.log(error)
+      }
+    )
+  }
 }

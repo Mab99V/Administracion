@@ -1,7 +1,4 @@
-export class AdminModel{
-
-    
+export class LoginEmail{
     email: string;
-    password:string;
-
+    password: string;
 }
